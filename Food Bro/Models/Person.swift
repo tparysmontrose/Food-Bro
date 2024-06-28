@@ -16,7 +16,7 @@ struct Person {
     var foodPreferences: String
     var foodAllergies: String
     var sportGoals: String
-    var activityLevel: ActivityLevel
+    var activityLevel: ActivityLevel?
     var dailyCalories: Double
 }
 

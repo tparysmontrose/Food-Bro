@@ -30,6 +30,7 @@
 		D9C91ADF2C2EA2B000A92A26 /* TitleRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C91ADE2C2EA2B000A92A26 /* TitleRowView.swift */; };
 		D9C91AE22C2EA69D00A92A26 /* ResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C91AE12C2EA69D00A92A26 /* ResultViewModel.swift */; };
 		D9C91AE42C2ED7C200A92A26 /* NotificationName+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C91AE32C2ED7C200A92A26 /* NotificationName+Ext.swift */; };
+		D9C91AE72C2EDF5800A92A26 /* SportGoalsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C91AE62C2EDF5800A92A26 /* SportGoalsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,7 @@
 		D9C91ADE2C2EA2B000A92A26 /* TitleRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleRowView.swift; sourceTree = "<group>"; };
 		D9C91AE12C2EA69D00A92A26 /* ResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewModel.swift; sourceTree = "<group>"; };
 		D9C91AE32C2ED7C200A92A26 /* NotificationName+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationName+Ext.swift"; sourceTree = "<group>"; };
+		D9C91AE62C2EDF5800A92A26 /* SportGoalsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportGoalsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,7 +134,7 @@
 				D9085BFB2C2C35B3005B434A /* PersonInfoInputVC.swift */,
 				D9701F4B2C2D3BF30000DC18 /* FoodPreferencesVC.swift */,
 				D9701F4F2C2D42310000DC18 /* FoodAllergiesVC.swift */,
-				D9701F512C2D44FD0000DC18 /* SportGoalsVC.swift */,
+				D9C91AE52C2EDF4400A92A26 /* SportGoalsVC */,
 				D9C91AE02C2EA68100A92A26 /* ResultVC */,
 				D9C91AD92C2E937C00A92A26 /* ActivityLevelVC.swift */,
 			);
@@ -163,6 +165,15 @@
 				D9C91AE12C2EA69D00A92A26 /* ResultViewModel.swift */,
 			);
 			path = ResultVC;
+			sourceTree = "<group>";
+		};
+		D9C91AE52C2EDF4400A92A26 /* SportGoalsVC */ = {
+			isa = PBXGroup;
+			children = (
+				D9701F512C2D44FD0000DC18 /* SportGoalsVC.swift */,
+				D9C91AE62C2EDF5800A92A26 /* SportGoalsViewModel.swift */,
+			);
+			path = SportGoalsVC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,6 +255,7 @@
 			files = (
 				D9701F592C2D79DD0000DC18 /* Person.swift in Sources */,
 				D9C91ADD2C2E947400A92A26 /* ActivityLevelCell.swift in Sources */,
+				D9C91AE72C2EDF5800A92A26 /* SportGoalsViewModel.swift in Sources */,
 				D9085C022C2C4017005B434A /* UIStackView+Ext.swift in Sources */,
 				D9085BE22C2C310A005B434A /* AppDelegate.swift in Sources */,
 				D9085BE42C2C310A005B434A /* SceneDelegate.swift in Sources */,
