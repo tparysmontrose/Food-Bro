@@ -3,27 +3,60 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		D9085BE22C2C310A005B434A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9085BE12C2C310A005B434A /* AppDelegate.swift */; };
 		D9085BE42C2C310A005B434A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9085BE32C2C310A005B434A /* SceneDelegate.swift */; };
-		D9085BE62C2C310A005B434A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9085BE52C2C310A005B434A /* ViewController.swift */; };
 		D9085BE92C2C310A005B434A /* Base in Resources */ = {isa = PBXBuildFile; fileRef = D9085BE82C2C310A005B434A /* Base */; };
 		D9085BEB2C2C310B005B434A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9085BEA2C2C310B005B434A /* Assets.xcassets */; };
 		D9085BEE2C2C310B005B434A /* Base in Resources */ = {isa = PBXBuildFile; fileRef = D9085BED2C2C310B005B434A /* Base */; };
+		D9085BF82C2C32C3005B434A /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9085BF72C2C32C3005B434A /* UIView+Ext.swift */; };
+		D9085BFC2C2C35B3005B434A /* PersonInfoInputVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9085BFB2C2C35B3005B434A /* PersonInfoInputVC.swift */; };
+		D9085BFE2C2C3F17005B434A /* Margins.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9085BFD2C2C3F17005B434A /* Margins.swift */; };
+		D9085C002C2C3F9A005B434A /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9085BFF2C2C3F9A005B434A /* UIConstants.swift */; };
+		D9085C022C2C4017005B434A /* UIStackView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9085C012C2C4017005B434A /* UIStackView+Ext.swift */; };
+		D9701F4A2C2D39190000DC18 /* AlertFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9701F492C2D39190000DC18 /* AlertFactory.swift */; };
+		D9701F4C2C2D3BF30000DC18 /* FoodPreferencesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9701F4B2C2D3BF30000DC18 /* FoodPreferencesVC.swift */; };
+		D9701F4E2C2D40F40000DC18 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9701F4D2C2D40F40000DC18 /* UIViewController+Ext.swift */; };
+		D9701F502C2D42310000DC18 /* FoodAllergiesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9701F4F2C2D42310000DC18 /* FoodAllergiesVC.swift */; };
+		D9701F522C2D44FD0000DC18 /* SportGoalsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9701F512C2D44FD0000DC18 /* SportGoalsVC.swift */; };
+		D9701F542C2D4DF20000DC18 /* ResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9701F532C2D4DF20000DC18 /* ResultVC.swift */; };
+		D9701F572C2D4F070000DC18 /* OpenAI in Frameworks */ = {isa = PBXBuildFile; productRef = D9701F562C2D4F070000DC18 /* OpenAI */; };
+		D9701F592C2D79DD0000DC18 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9701F582C2D79DD0000DC18 /* Person.swift */; };
+		D9C91ADA2C2E937C00A92A26 /* ActivityLevelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C91AD92C2E937C00A92A26 /* ActivityLevelVC.swift */; };
+		D9C91ADD2C2E947400A92A26 /* ActivityLevelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C91ADC2C2E947400A92A26 /* ActivityLevelCell.swift */; };
+		D9C91ADF2C2EA2B000A92A26 /* TitleRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C91ADE2C2EA2B000A92A26 /* TitleRowView.swift */; };
+		D9C91AE22C2EA69D00A92A26 /* ResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C91AE12C2EA69D00A92A26 /* ResultViewModel.swift */; };
+		D9C91AE42C2ED7C200A92A26 /* NotificationName+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C91AE32C2ED7C200A92A26 /* NotificationName+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D9085BDE2C2C310A005B434A /* Food Bro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Food Bro.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9085BE12C2C310A005B434A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D9085BE32C2C310A005B434A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D9085BE52C2C310A005B434A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D9085BE82C2C310A005B434A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D9085BEA2C2C310B005B434A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D9085BED2C2C310B005B434A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D9085BEF2C2C310B005B434A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D9085BF72C2C32C3005B434A /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
+		D9085BFB2C2C35B3005B434A /* PersonInfoInputVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonInfoInputVC.swift; sourceTree = "<group>"; };
+		D9085BFD2C2C3F17005B434A /* Margins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Margins.swift; sourceTree = "<group>"; };
+		D9085BFF2C2C3F9A005B434A /* UIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
+		D9085C012C2C4017005B434A /* UIStackView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Ext.swift"; sourceTree = "<group>"; };
+		D9701F492C2D39190000DC18 /* AlertFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertFactory.swift; sourceTree = "<group>"; };
+		D9701F4B2C2D3BF30000DC18 /* FoodPreferencesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodPreferencesVC.swift; sourceTree = "<group>"; };
+		D9701F4D2C2D40F40000DC18 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
+		D9701F4F2C2D42310000DC18 /* FoodAllergiesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodAllergiesVC.swift; sourceTree = "<group>"; };
+		D9701F512C2D44FD0000DC18 /* SportGoalsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportGoalsVC.swift; sourceTree = "<group>"; };
+		D9701F532C2D4DF20000DC18 /* ResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultVC.swift; sourceTree = "<group>"; };
+		D9701F582C2D79DD0000DC18 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		D9C91AD92C2E937C00A92A26 /* ActivityLevelVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityLevelVC.swift; sourceTree = "<group>"; };
+		D9C91ADC2C2E947400A92A26 /* ActivityLevelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityLevelCell.swift; sourceTree = "<group>"; };
+		D9C91ADE2C2EA2B000A92A26 /* TitleRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleRowView.swift; sourceTree = "<group>"; };
+		D9C91AE12C2EA69D00A92A26 /* ResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewModel.swift; sourceTree = "<group>"; };
+		D9C91AE32C2ED7C200A92A26 /* NotificationName+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationName+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9701F572C2D4F070000DC18 /* OpenAI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,15 +90,79 @@
 		D9085BE02C2C310A005B434A /* Food Bro */ = {
 			isa = PBXGroup;
 			children = (
-				D9085BE12C2C310A005B434A /* AppDelegate.swift */,
-				D9085BE32C2C310A005B434A /* SceneDelegate.swift */,
-				D9085BE52C2C310A005B434A /* ViewController.swift */,
+				D9085BFA2C2C35A3005B434A /* Models */,
+				D9C91ADB2C2E940F00A92A26 /* Views */,
+				D9085BF92C2C3598005B434A /* Screens */,
+				D9085BF52C2C32A2005B434A /* Utils */,
 				D9085BE72C2C310A005B434A /* Main.storyboard */,
 				D9085BEA2C2C310B005B434A /* Assets.xcassets */,
 				D9085BEC2C2C310B005B434A /* LaunchScreen.storyboard */,
 				D9085BEF2C2C310B005B434A /* Info.plist */,
 			);
 			path = "Food Bro";
+			sourceTree = "<group>";
+		};
+		D9085BF52C2C32A2005B434A /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				D9085BF62C2C32B0005B434A /* Extensions */,
+				D9085BE12C2C310A005B434A /* AppDelegate.swift */,
+				D9085BE32C2C310A005B434A /* SceneDelegate.swift */,
+				D9085BFD2C2C3F17005B434A /* Margins.swift */,
+				D9085BFF2C2C3F9A005B434A /* UIConstants.swift */,
+				D9701F492C2D39190000DC18 /* AlertFactory.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		D9085BF62C2C32B0005B434A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D9085BF72C2C32C3005B434A /* UIView+Ext.swift */,
+				D9085C012C2C4017005B434A /* UIStackView+Ext.swift */,
+				D9701F4D2C2D40F40000DC18 /* UIViewController+Ext.swift */,
+				D9C91AE32C2ED7C200A92A26 /* NotificationName+Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D9085BF92C2C3598005B434A /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				D9085BFB2C2C35B3005B434A /* PersonInfoInputVC.swift */,
+				D9701F4B2C2D3BF30000DC18 /* FoodPreferencesVC.swift */,
+				D9701F4F2C2D42310000DC18 /* FoodAllergiesVC.swift */,
+				D9701F512C2D44FD0000DC18 /* SportGoalsVC.swift */,
+				D9C91AE02C2EA68100A92A26 /* ResultVC */,
+				D9C91AD92C2E937C00A92A26 /* ActivityLevelVC.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		D9085BFA2C2C35A3005B434A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D9701F582C2D79DD0000DC18 /* Person.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		D9C91ADB2C2E940F00A92A26 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D9C91ADC2C2E947400A92A26 /* ActivityLevelCell.swift */,
+				D9C91ADE2C2EA2B000A92A26 /* TitleRowView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D9C91AE02C2EA68100A92A26 /* ResultVC */ = {
+			isa = PBXGroup;
+			children = (
+				D9701F532C2D4DF20000DC18 /* ResultVC.swift */,
+				D9C91AE12C2EA69D00A92A26 /* ResultViewModel.swift */,
+			);
+			path = ResultVC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +181,9 @@
 			dependencies = (
 			);
 			name = "Food Bro";
+			packageProductDependencies = (
+				D9701F562C2D4F070000DC18 /* OpenAI */,
+			);
 			productName = "Food Bro";
 			productReference = D9085BDE2C2C310A005B434A /* Food Bro.app */;
 			productType = "com.apple.product-type.application";
@@ -103,7 +204,7 @@
 				};
 			};
 			buildConfigurationList = D9085BD92C2C310A005B434A /* Build configuration list for PBXProject "Food Bro" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 15.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -111,6 +212,9 @@
 				Base,
 			);
 			mainGroup = D9085BD52C2C310A005B434A;
+			packageReferences = (
+				D9701F552C2D4F070000DC18 /* XCRemoteSwiftPackageReference "OpenAI" */,
+			);
 			productRefGroup = D9085BDF2C2C310A005B434A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -138,9 +242,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D9085BE62C2C310A005B434A /* ViewController.swift in Sources */,
+				D9701F592C2D79DD0000DC18 /* Person.swift in Sources */,
+				D9C91ADD2C2E947400A92A26 /* ActivityLevelCell.swift in Sources */,
+				D9085C022C2C4017005B434A /* UIStackView+Ext.swift in Sources */,
 				D9085BE22C2C310A005B434A /* AppDelegate.swift in Sources */,
 				D9085BE42C2C310A005B434A /* SceneDelegate.swift in Sources */,
+				D9701F4E2C2D40F40000DC18 /* UIViewController+Ext.swift in Sources */,
+				D9085BFC2C2C35B3005B434A /* PersonInfoInputVC.swift in Sources */,
+				D9701F502C2D42310000DC18 /* FoodAllergiesVC.swift in Sources */,
+				D9C91AE22C2EA69D00A92A26 /* ResultViewModel.swift in Sources */,
+				D9085BF82C2C32C3005B434A /* UIView+Ext.swift in Sources */,
+				D9085BFE2C2C3F17005B434A /* Margins.swift in Sources */,
+				D9701F4C2C2D3BF30000DC18 /* FoodPreferencesVC.swift in Sources */,
+				D9C91AE42C2ED7C200A92A26 /* NotificationName+Ext.swift in Sources */,
+				D9085C002C2C3F9A005B434A /* UIConstants.swift in Sources */,
+				D9701F542C2D4DF20000DC18 /* ResultVC.swift in Sources */,
+				D9C91ADF2C2EA2B000A92A26 /* TitleRowView.swift in Sources */,
+				D9701F522C2D44FD0000DC18 /* SportGoalsVC.swift in Sources */,
+				D9C91ADA2C2E937C00A92A26 /* ActivityLevelVC.swift in Sources */,
+				D9701F4A2C2D39190000DC18 /* AlertFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +420,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -307,9 +428,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.TP.Food-Bro";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -328,6 +453,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -335,9 +461,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.TP.Food-Bro";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -363,6 +493,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D9701F552C2D4F070000DC18 /* XCRemoteSwiftPackageReference "OpenAI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MacPaw/OpenAI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.9;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D9701F562C2D4F070000DC18 /* OpenAI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D9701F552C2D4F070000DC18 /* XCRemoteSwiftPackageReference "OpenAI" */;
+			productName = OpenAI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D9085BD62C2C310A005B434A /* Project object */;
 }
