@@ -37,7 +37,7 @@ extension UIView {
         toolBarTextField.sizeToFit()
         let symbol      = UIImage(systemName: "keyboard.chevron.compact.down")
         let doneButton    = UIBarButtonItem(image: symbol, style: .done, target: self, action: #selector(doneBtnPressed))
-        doneButton.tintColor = .black
+        doneButton.tintColor = .label
         let flexibleSpace  = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         toolBarTextField.setItems([ flexibleSpace,doneButton,flexibleSpace], animated: true)
         
