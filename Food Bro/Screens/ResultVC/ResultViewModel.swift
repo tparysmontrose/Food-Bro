@@ -9,22 +9,19 @@ import Foundation
 import Combine
 import OpenAI
 
-enum MealError: Error {
-    case invalidApiKey
-    case unknownError
-}
-
 class ResultViewModel {
     
     private var resultText: String = ""
     var meal = PassthroughSubject<String, MealError>()
     
-    #warning("Enter the Open AI - API key in string format line below")
-    private let openAI = OpenAI(apiToken: "ENTER OPEN AI API KEY")
+    let apiKey: String?
+    private let openAI: OpenAI
     private let person: Person
     
     init(person: Person) {
         self.person = person
+        self.apiKey = try? SecureStore.shared.getValue(for: Constants.openAiApiKey)
+        self.openAI = OpenAI(apiToken: self.apiKey ?? "")
     }
     
     private func activityDesc(activityLevel: ActivityLevel?) -> String {
@@ -80,11 +77,12 @@ class ResultViewModel {
                 for x in answers {
                     resultText += x.delta.content ?? ""
                 }
-                meal.send(completion: .finished)
                 meal.send(resultText)
                 
             case .failure(let error):
+                print("error-> \(error)")
                 guard let errorApi = error as? APIErrorResponse, (errorApi.error.code ?? "") == "invalid_api_key" else {
+                    
                     meal.send(completion: .failure(.unknownError))
                     return
                 }
@@ -92,7 +90,7 @@ class ResultViewModel {
                 print("error-> \(error)")
             }
         } completion: {[weak self] error in
-            guard let self = self else { return }
+            guard let self = self, error != nil else { return }
             meal.send(completion: .failure(.unknownError))
             print(error?.localizedDescription ?? "NO ERROR")
         }

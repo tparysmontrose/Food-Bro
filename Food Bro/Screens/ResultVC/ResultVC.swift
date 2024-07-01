@@ -94,10 +94,11 @@ class ResultVC: UIViewController {
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: {[weak self] completion in
                 guard let self = self else {return}
-                indicator.isHidden = true
+                
             switch completion {
             case .finished:
                 indicator.isHidden = true
+                break
             case .failure(let error):
                 print(error)
                 indicator.isHidden = true
@@ -107,6 +108,7 @@ class ResultVC: UIViewController {
             
         }, receiveValue: {[weak self] meal in
             guard let self = self else {return}
+            indicator.isHidden = true
             self.mealView.text = meal
         })
     }
