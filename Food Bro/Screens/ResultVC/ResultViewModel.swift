@@ -9,12 +9,18 @@ import Foundation
 import Combine
 import OpenAI
 
+enum MealError: Error {
+    case invalidApiKey
+    case unknownError
+}
+
 class ResultViewModel {
     
     private var resultText: String = ""
-    var meal = PassthroughSubject<String, Never>()
+    var meal = PassthroughSubject<String, MealError>()
     
-    private let openAI = OpenAI(apiToken: AppConfig.apiKey)
+    #warning("Enter the Open AI - API key in string format line below")
+    private let openAI = OpenAI(apiToken: "ENTER OPEN AI API KEY")
     private let person: Person
     
     init(person: Person) {
@@ -74,13 +80,20 @@ class ResultViewModel {
                 for x in answers {
                     resultText += x.delta.content ?? ""
                 }
-                
+                meal.send(completion: .finished)
                 meal.send(resultText)
                 
             case .failure(let error):
+                guard let errorApi = error as? APIErrorResponse, (errorApi.error.code ?? "") == "invalid_api_key" else {
+                    meal.send(completion: .failure(.unknownError))
+                    return
+                }
+                meal.send(completion: .failure(.invalidApiKey))
                 print("error-> \(error)")
             }
-        } completion: { error in
+        } completion: {[weak self] error in
+            guard let self = self else { return }
+            meal.send(completion: .failure(.unknownError))
             print(error?.localizedDescription ?? "NO ERROR")
         }
     }

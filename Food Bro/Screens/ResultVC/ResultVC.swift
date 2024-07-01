@@ -92,10 +92,22 @@ class ResultVC: UIViewController {
     private func bindToMeal() {
         token = vm.meal
             .receive(on: DispatchQueue.main)
-            .sink(receiveValue: {[weak self] meal in
+            .sink(receiveCompletion: {[weak self] completion in
                 guard let self = self else {return}
                 indicator.isHidden = true
-                self.mealView.text = meal
+            switch completion {
+            case .finished:
+                indicator.isHidden = true
+            case .failure(let error):
+                print(error)
+                indicator.isHidden = true
+                let msg = error == .invalidApiKey ? "Enter the correct API key and start again." : "Try again."
+                AlertFactory.createSheetAlert(for: self, with: "Ups something was wrong", message: msg, buttons: [])
+            }
+            
+        }, receiveValue: {[weak self] meal in
+            guard let self = self else {return}
+            self.mealView.text = meal
         })
     }
     
