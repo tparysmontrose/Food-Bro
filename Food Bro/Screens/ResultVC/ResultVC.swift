@@ -27,13 +27,23 @@ class ResultVC: UIViewController {
     let shareBtn: UIButton = {
         let btn = UIButton(configuration: .tinted())
         btn.configuration?.baseBackgroundColor = .systemGreen
+        btn.configuration?.baseForegroundColor = .systemGreen
         btn.configuration?.title = "Share result"
+        return btn
+    }()
+    
+    let shareGroceriesBtn: UIButton = {
+        let btn = UIButton(configuration: .tinted())
+        btn.configuration?.baseBackgroundColor = .systemBlue
+        btn.configuration?.baseForegroundColor = .systemBlue
+        btn.configuration?.title = "Share groceries list"
         return btn
     }()
     
     let againBtn: UIButton = {
         let btn = UIButton(configuration: .tinted())
         btn.configuration?.baseBackgroundColor = .systemPink
+        btn.configuration?.baseForegroundColor = .systemPink
         btn.configuration?.title = "Start again"
         return btn
     }()
@@ -62,11 +72,12 @@ class ResultVC: UIViewController {
         title = "Meal Plan"
         
         againBtn.addTarget(self, action: #selector(againBtnPressed), for: .touchUpInside)
+        shareGroceriesBtn.addTarget(self, action: #selector(shareGroceriesBtnPressed), for: .touchUpInside)
         shareBtn.addTarget(self, action: #selector(shareBtnPressed), for: .touchUpInside)
     }
     
     private func configAutolayout() {
-        view.addSubviews(againBtn, shareBtn, mealView, indicator)
+        view.addSubviews(againBtn, shareBtn, shareGroceriesBtn, mealView, indicator)
         
         NSLayoutConstraint.activate([
             againBtn.heightAnchor.constraint(equalToConstant: UIConstants.buttonHeight),
@@ -79,10 +90,15 @@ class ResultVC: UIViewController {
             shareBtn.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -Margins.standard),
             shareBtn.bottomAnchor.constraint(equalTo: againBtn.topAnchor, constant: -Margins.standard),
             
+            shareGroceriesBtn.heightAnchor.constraint(equalToConstant: UIConstants.buttonHeight),
+            shareGroceriesBtn.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: Margins.standard),
+            shareGroceriesBtn.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -Margins.standard),
+            shareGroceriesBtn.bottomAnchor.constraint(equalTo: shareBtn.topAnchor, constant: -Margins.standard),
+            
             mealView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: Margins.standard),
             mealView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: Margins.standard),
             mealView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -Margins.standard),
-            mealView.bottomAnchor.constraint(equalTo: shareBtn.topAnchor, constant: -Margins.standard),
+            mealView.bottomAnchor.constraint(equalTo: shareGroceriesBtn.topAnchor, constant: -Margins.standard),
             
             indicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             indicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
@@ -113,6 +129,15 @@ class ResultVC: UIViewController {
         })
     }
     
+    @objc func shareGroceriesBtnPressed() {
+        let allText = mealView.text ?? ""
+
+        if let range = allText.range(of: "🛒") {
+            let groceries = allText[range.upperBound...]
+            shareContent(content: String(groceries))
+        }
+    }
+    
     @objc func againBtnPressed() {
         NotificationCenter.default.post(name: .startAgain, object: nil)
         navigationController?.popToRootViewController(animated: true)
@@ -120,7 +145,11 @@ class ResultVC: UIViewController {
     
     @objc func shareBtnPressed() {
         let meal = mealView.text ?? ""
-        let shareAll = [meal] as [Any]
+        shareContent(content: meal)
+    }
+    
+    private func shareContent(content: String) {
+        let shareAll = [content] as [Any]
         let activityViewController = UIActivityViewController(activityItems: shareAll, applicationActivities: nil)
         activityViewController.popoverPresentationController?.sourceView = self.view
         self.present(activityViewController, animated: true, completion: nil)
