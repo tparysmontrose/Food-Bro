@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SafariServices
 
 enum ApiKeyStatus: CaseIterable {
     case save
@@ -72,7 +73,16 @@ class OpenAiApiKeyInputVC: UIViewController {
     let deleteBtn: UIButton = {
         let btn = UIButton(configuration: .tinted())
         btn.configuration?.baseBackgroundColor = .systemPink
+        btn.configuration?.baseForegroundColor = .systemPink
         btn.configuration?.title = "Remove API key"
+        return btn
+    }()
+    
+    let createBtn: UIButton = {
+        let btn = UIButton(configuration: .tinted())
+        btn.configuration?.baseBackgroundColor = .systemGreen
+        btn.configuration?.baseForegroundColor = .systemGreen
+        btn.configuration?.title = "Create OpenAI Api key"
         return btn
     }()
     
@@ -105,10 +115,11 @@ class OpenAiApiKeyInputVC: UIViewController {
         saveBtn.addTarget(self, action: #selector(saveBtnPressed), for: .touchUpInside)
         deleteBtn.addTarget(self, action: #selector(deleteBtnPressed), for: .touchUpInside)
         backBtn.addTarget(self, action: #selector(backBtnPressed), for: .touchUpInside)
+        createBtn.addTarget(self, action: #selector(createApiKeyBtnPressed), for: .touchUpInside)
     }
     
     private func configAutolayout() {
-        view.addSubviews(backBtn, titleLbl, apiKeyTf, saveBtn, deleteBtn)
+        view.addSubviews(backBtn, titleLbl, apiKeyTf, saveBtn, deleteBtn, createBtn)
         
         NSLayoutConstraint.activate([
             backBtn.topAnchor.constraint(equalTo: view.topAnchor, constant: Margins.standard),
@@ -132,7 +143,12 @@ class OpenAiApiKeyInputVC: UIViewController {
             deleteBtn.heightAnchor.constraint(equalToConstant: UIConstants.buttonHeight),
             deleteBtn.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: Margins.standard),
             deleteBtn.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -Margins.standard),
-            deleteBtn.topAnchor.constraint(equalTo: saveBtn.bottomAnchor, constant: Margins.standard)
+            deleteBtn.topAnchor.constraint(equalTo: saveBtn.bottomAnchor, constant: Margins.standard),
+            
+            createBtn.heightAnchor.constraint(equalToConstant: UIConstants.buttonHeight),
+            createBtn.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: Margins.standard),
+            createBtn.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -Margins.standard),
+            createBtn.topAnchor.constraint(equalTo: deleteBtn.bottomAnchor, constant: Margins.standard)
         ])
         
         if withNavBar {
@@ -183,6 +199,17 @@ class OpenAiApiKeyInputVC: UIViewController {
         } else {
             dismiss(animated: true)
         }
+    }
+    
+    @objc private func createApiKeyBtnPressed() {
+        
+        guard let url = URL(string: "https://help.openai.com/en/articles/4936850-where-do-i-find-my-openai-api-key") else {
+            AlertFactory.createSheetAlert(for: self, with: "Ups something was wrong", message: "The address you want to go to no longer exists.", buttons: [])
+            return
+        }
+        let safariVC = SFSafariViewController(url: url)
+        safariVC.modalPresentationStyle = .formSheet
+        present(safariVC, animated: true, completion: nil)
     }
     
     @objc private func backBtnPressed() {
