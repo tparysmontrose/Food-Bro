@@ -15,6 +15,7 @@ class SportGoalsVC: UIViewController {
     let sportGoalsTV: UITextView = {
        let tv = UITextView()
         tv.backgroundColor = .secondarySystemBackground
+        tv.autocorrectionType = .no
         tv.layer.cornerRadius = UIConstants.standardCornerRadius
         tv.text = "Do you have any sports or nutrition goals?"
         tv.textColor = .secondaryLabel
@@ -97,9 +98,16 @@ class SportGoalsVC: UIViewController {
 extension SportGoalsVC: UITextViewDelegate {
 
     func textViewDidBeginEditing(_ textView: UITextView) {
-        textView.text = ""
+        if textView.text == "Do you have any sports or nutrition goals?" {
+            textView.text = ""
+        }
+            
         textView.textColor = .label
         nextBtn.isEnabled = true
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        person.sportGoals = textView.text
     }
 }
 //MARK: - TitleRowViewDelegate

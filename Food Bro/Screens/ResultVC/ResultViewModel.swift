@@ -41,21 +41,21 @@ class ResultViewModel {
     }
     
     private func foodPreferencesDesc(preferences: String) -> String {
-        guard preferences == " " else {
+        guard preferences != "" else {
             return "Do not include special food preferences."
         }
         return "The answer must include food preferences: \(preferences)."
     }
     
     private func foodAllergiesDesc(allergies: String) -> String {
-        guard allergies == " " else {
+        guard allergies != "" else {
             return "The person is not allergic to any ingredient."
         }
         return "The person is allergic to: \(allergies)."
     }
     
     private func sportGoalsDesc(goals: String) -> String {
-        guard goals == " " else {
+        guard goals != "" else {
             return ""
         }
         return "person has the following goals: \(goals)"
@@ -85,12 +85,10 @@ class ResultViewModel {
     }
    
     func getMealPlan() {
-        let prompt = "Please generate list \(getPlanFor()) calculated calories for each meal. All meals each day together should have about \(person.dailyCalories) calories. \(activityDesc(activityLevel: person.activityLevel)) Meals must be balanced and healthy, include enough protein, carbs and fats. Person is a \(person.gender) have \(person.age) years old and \(person.height) cm height, \(person.weight) kg weight and with Body Mass Index \(person.bmi). \(foodPreferencesDesc(preferences: person.foodPreferences)) \(foodAllergiesDesc(allergies: person.foodAllergies)) \(sportGoalsDesc(goals: person.sportGoals)) Please at the end, write the total calories of all meals. \(getExample())"
-        
-        print(prompt)
-        
+        let prompt = "Please generate list \(getPlanFor()) calculated calories for each meal. All meals each day together should have about \(Int(person.dailyCalories)) calories. \(activityDesc(activityLevel: person.activityLevel)) Meals must be balanced and healthy, include enough protein, carbs and fats. Person is a \(person.gender) have \(person.age) years old and \(person.height) cm height, \(person.weight) kg weight and with Body Mass Index \(person.bmi). \(foodPreferencesDesc(preferences: person.foodPreferences)) \(foodAllergiesDesc(allergies: person.foodAllergies)) \(sportGoalsDesc(goals: person.sportGoals)) Please at the end, write the total calories of all meals. \(getExample())"
+    
         guard let msg = ChatQuery.ChatCompletionMessageParam(role: .user, content: prompt) else {return}
-        let chatQuary = ChatQuery(messages: [msg], model: .gpt3_5Turbo, temperature: 0.5)
+        let chatQuary = ChatQuery(messages: [msg], model: .gpt4_o, temperature: 0.5)
         
         openAI.chatsStream(query: chatQuary) {[weak self] partialResult in
             guard let self = self else {return}

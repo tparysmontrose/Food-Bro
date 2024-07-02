@@ -14,6 +14,7 @@ class FoodPreferencesVC: UIViewController {
     let foodPreferencesTV: UITextView = {
        let tv = UITextView()
         tv.backgroundColor = .secondarySystemBackground
+        tv.autocorrectionType = .no
         tv.layer.cornerRadius = UIConstants.standardCornerRadius
         tv.text = "Please enter your food preferences. \nType in full sentence or leave blank \n(ex.: I can’t stand eating fish. I very like chocolate and fruits.)"
         tv.textColor = .secondaryLabel

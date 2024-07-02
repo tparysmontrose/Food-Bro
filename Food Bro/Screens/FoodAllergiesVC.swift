@@ -14,6 +14,7 @@ class FoodAllergiesVC: UIViewController {
     let foodAllergiesTV: UITextView = {
        let tv = UITextView()
         tv.backgroundColor = .secondarySystemBackground
+        tv.autocorrectionType = .no
         tv.layer.cornerRadius = UIConstants.standardCornerRadius
         tv.text = "Please enter any food allergies you have. Please write list the individual ingredients ex. nuts, carrots, peas"
         tv.textColor = .secondaryLabel
