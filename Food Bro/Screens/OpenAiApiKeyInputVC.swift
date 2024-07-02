@@ -25,10 +25,23 @@ class OpenAiApiKeyInputVC: UIViewController {
         let tf = UITextField()
         tf.backgroundColor = .secondarySystemBackground
         tf.borderStyle = .roundedRect
+        tf.autocapitalizationType = .none
+        tf.autocorrectionType = .no
+        tf.isSecureTextEntry = true
         tf.keyboardType = .default
         tf.addHideKeyboardButton(forControl: tf)
         tf.placeholder = "Enter your OpenAI Api Key"
         return tf
+    }()
+    
+    lazy var hideUnhideBtn: UIButton = {
+        let btn = UIButton(configuration: .filled())
+        btn.configuration?.baseBackgroundColor = .clear
+        btn.configuration?.baseForegroundColor = .label
+        btn.setImage(UIImage(systemName: "eye"), for: .normal)
+        btn.setImage(UIImage(systemName: "eye.slash.fill"), for: .selected)
+        btn.addTarget(self, action: #selector(hideUnhideApiKey), for: .touchUpInside)
+        return btn
     }()
     
     let backBtn: UIButton = {
@@ -85,6 +98,9 @@ class OpenAiApiKeyInputVC: UIViewController {
         title = "Api key Settings"
         backBtn.isHidden = withNavBar
         titleLbl.isHidden = withNavBar
+        
+        apiKeyTf.rightView = hideUnhideBtn
+        apiKeyTf.rightViewMode = .always
         
         saveBtn.addTarget(self, action: #selector(saveBtnPressed), for: .touchUpInside)
         deleteBtn.addTarget(self, action: #selector(deleteBtnPressed), for: .touchUpInside)
@@ -171,6 +187,11 @@ class OpenAiApiKeyInputVC: UIViewController {
     
     @objc private func backBtnPressed() {
         backToPreviesScreen()
+    }
+    
+    @objc func hideUnhideApiKey() {
+        apiKeyTf.isSecureTextEntry = !apiKeyTf.isSecureTextEntry
+        hideUnhideBtn.isSelected = !hideUnhideBtn.isSelected
     }
 }
 //MARK: -UITextFieldDelegate
