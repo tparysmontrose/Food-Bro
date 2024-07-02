@@ -15,13 +15,21 @@ class MenuVC: UIViewController {
         stack.layoutMargins = UIEdgeInsets(top: Margins.zero, left: Margins.standard, bottom: Margins.zero, right: Margins.standard)
         stack.spacing = Margins.standard
         stack.axis = .vertical
-        stack.addArrangedSubviews(mealPlannerBtn, apiKeySettingsBtn)
+        stack.addArrangedSubviews(dailyMealPlannerBtn, weeklyMealPlannerBtn, apiKeySettingsBtn)
         return stack
     }()
     
-    let mealPlannerBtn: UIButton = {
+    let dailyMealPlannerBtn: UIButton = {
         let btn = UIButton(configuration: .tinted())
         btn.configuration?.title = "Daily meal planner"
+        return btn
+    }()
+    
+    let weeklyMealPlannerBtn: UIButton = {
+        let btn = UIButton(configuration: .tinted())
+        btn.configuration?.baseBackgroundColor = .systemGreen
+        btn.configuration?.baseForegroundColor = .systemGreen
+        btn.configuration?.title = "Weekly meal planner"
         return btn
     }()
     
@@ -55,7 +63,8 @@ class MenuVC: UIViewController {
         
         view.backgroundColor = .systemBackground
         apiKeySettingsBtn.addTarget(self, action: #selector(apiKeySettingsBtnPressed), for: .touchUpInside)
-        mealPlannerBtn.addTarget(self, action: #selector(mealPlannerBtnPressed), for: .touchUpInside)
+        dailyMealPlannerBtn.addTarget(self, action: #selector(dailyMealPlannerBtnPressed), for: .touchUpInside)
+        weeklyMealPlannerBtn.addTarget(self, action: #selector(weeklyMealPlannerBtnPressed), for: .touchUpInside)
     }
     
     private func configAutolayout() {
@@ -70,7 +79,8 @@ class MenuVC: UIViewController {
             appVersionLbl.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             appVersionLbl.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -Margins.standard),
             
-            mealPlannerBtn.heightAnchor.constraint(equalToConstant: UIConstants.buttonHeight),
+            dailyMealPlannerBtn.heightAnchor.constraint(equalToConstant: UIConstants.buttonHeight),
+            weeklyMealPlannerBtn.heightAnchor.constraint(equalToConstant: UIConstants.buttonHeight),
             apiKeySettingsBtn.heightAnchor.constraint(equalToConstant: UIConstants.buttonHeight)
         ])
     }
@@ -81,8 +91,13 @@ class MenuVC: UIViewController {
         presentDestVCinNC(goTo: destVC)
     }
     
-    @objc private func mealPlannerBtnPressed() {
-        let destVC = PersonInfoInputVC()
+    @objc private func dailyMealPlannerBtnPressed() {
+        let destVC = PersonInfoInputVC(planFor: .daily)
+        presentDestVCinNC(goTo: destVC)
+    }
+    
+    @objc private func weeklyMealPlannerBtnPressed() {
+        let destVC = PersonInfoInputVC(planFor: .weakly)
         presentDestVCinNC(goTo: destVC)
     }
     
@@ -109,5 +124,4 @@ extension MenuVC: OpenAiApiKeyInputVCDelegate {
             }
         }
     }
-    
 }

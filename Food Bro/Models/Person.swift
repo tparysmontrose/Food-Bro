@@ -13,6 +13,7 @@ struct Person {
     let height: Double
     let bmi: Double
     let gender: Gender
+    let planFor: MealPlaner
     var foodPreferences: String
     var foodAllergies: String
     var sportGoals: String
@@ -23,4 +24,9 @@ struct Person {
 enum Gender: Int, CaseIterable  {
     case male = 0
     case female = 1
+}
+
+enum MealPlaner: CaseIterable {
+    case daily
+    case weakly
 }

@@ -9,6 +9,8 @@ import UIKit
 
 class PersonInfoInputVC: UIViewController {
     
+    let planFor: MealPlaner
+    
     lazy var basicInfoStack: UIStackView = {
         let stack = UIStackView()
         stack.isLayoutMarginsRelativeArrangement = true
@@ -61,6 +63,15 @@ class PersonInfoInputVC: UIViewController {
         return btn
     }()
     
+    init(planFor: MealPlaner) {
+        self.planFor = planFor
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configUIElements()
@@ -108,7 +119,7 @@ class PersonInfoInputVC: UIViewController {
         }
         let gender = Gender(rawValue: genderSegmentedControl.selectedSegmentIndex) ?? .male
         let bmi = calculateBMI(weight: weight, height: height)
-        let person = Person(age: age, weight: weight, height: height, bmi: bmi, gender: gender, foodPreferences: "", foodAllergies: "", sportGoals: "", activityLevel: nil, dailyCalories: 0)
+        let person = Person(age: age, weight: weight, height: height, bmi: bmi, gender: gender, planFor: planFor, foodPreferences: "", foodAllergies: "", sportGoals: "", activityLevel: nil, dailyCalories: 0)
         let destVC = FoodPreferencesVC(person: person)
         presentDestVCinNC(goTo: destVC)
     }

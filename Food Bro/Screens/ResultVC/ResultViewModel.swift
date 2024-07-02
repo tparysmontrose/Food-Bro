@@ -61,10 +61,33 @@ class ResultViewModel {
         return "person has the following goals: \(goals)"
     }
     
-    func getMealPlan() {
-        let example = "General requirements: \n\n-Meal plan has to be generated for 1 day. \n\n- print out only the meal plan, meal preparation instructions and on At the very bottom a list of all products as a shopping list. Please add preparation time. Answer must take into food preferences and the following goals. \n\n- In the example below you can see how the final output should look like. \n\nExample of answer: \n\n 🍽️ Breakfast: scrambled eggs with spinach and avocado \n\n 🍌 Ingredients \n- 2 eggs\n- 1/2 avocado\n- 1 cup spinach\n\n 🫕 Preparation (⏰ preparation time: about 15 minutes) \n- heat the pan\n- scramble the eggs\n- add spinach to the pan\n- serve with avocado\n\n Nutrition\n- calories: 300\n- protein: 20g\n- carbs: 10g\n- fats: 15g\n\n=================================n\n.... and more\n\n=================================\n\n=================================\n\nTotal nutrition\n- calories: 1300\n- protein: 55g\n- carbs: 50g\n- fats: 35g\n\n=================================\n\n 📋 Groceries list 🛒\n- 6 eggs\n- 1 avocado\n- 2 cups spinach\n- 1 cup quinoa\n- 1 cup cherry tomatoes\n- 1 cucumber\n- 1 bell pepper"
+    private func getPlanFor() -> String {
+        switch person.planFor {
+            
+        case .daily:
+            return "of 5 meals for only one day"
+        case .weakly:
+            return "of 5 meals per day for all week (7 days), first day of week is monday"
+        }
+    }
+    
+    private func getExample() -> String {
+        let oneDayexample = "General requirements: \n\n-Meal plan has to be generated for 1 day. \n\n- print out only the meal plan, meal preparation instructions and on At the very bottom a list of all products as a shopping list (you need to add the quantity of each product for example - 6 eggs, - 1 avocado ... etc.). Please add preparation time. Answer must take into food preferences and the following goals. \n\n- In the example below you can see how the final output should look like. \n\nExample of answer: \n\n 🍽️ Breakfast: scrambled eggs with spinach and avocado \n\n 🍌 Ingredients \n- 2 eggs\n- 1/2 avocado\n- 1 cup spinach\n\n 🫕 Preparation (⏰ preparation time: about 15 minutes) \n- heat the pan\n- scramble the eggs\n- add spinach to the pan\n- serve with avocado\n\n Nutrition\n- calories: 300\n- protein: 20g\n- carbs: 10g\n- fats: 15g\n\n=================================n\n.... and more\n\n=================================\n\n=================================\n\nTotal nutrition\n- calories: \(Int(person.dailyCalories))\n- protein: 55g\n- carbs: 50g\n- fats: 35g\n\n=================================\n\n 📋 Groceries list 🛒\n- 6 eggs\n- 1 avocado\n- 2 cups spinach\n- 1 cup quinoa\n- 1 cup cherry tomatoes\n- 1 cucumber\n- 1 bell pepper"
         
-        let prompt = "Please generate list of 5 meals for only one day and calculated calories for each meal. All meals together should have about \(person.dailyCalories) calories. \(activityDesc(activityLevel: person.activityLevel)) Meals must be balanced and healthy, include enough protein, carbs and fats. Person is a \(person.gender) have \(person.age) years old and \(person.height) cm height, \(person.weight) kg weight and with Body Mass Index \(person.bmi). \(foodPreferencesDesc(preferences: person.foodPreferences)) \(foodAllergiesDesc(allergies: person.foodAllergies)) \(sportGoalsDesc(goals: person.sportGoals)) Please at the end, write the total calories of all meals. \(example)"
+        let weekExample = "General requirements: \n\n-Meal plan has to be generated for 7 days and first day of week is monday. Very important is that all meals each day together should have about \(Int(person.dailyCalories)) calories. Print out the meal plan, meal preparation instructions and on At the very bottom a list of all products (for all week broken down by day of the week) as a shopping list (you need to add the quantity of each product for example - 6 eggs, - 1 avocado). The shopping list must be for each day of week from monday to sunday. Please add preparation time. Answer must take into food preferences and the following goals. \n\n- In the example below you can see how the final output should look like. \nExample of answer: 1️⃣ MONDAY: \n\n 🍽️ Breakfast: scrambled eggs with spinach and avocado \n\n🍌 Ingredients \n- 2 eggs\n- 1/2 avocado\n- 1 cup spinach\n\n 🫕 Preparation (⏰ preparation time: about 15 minutes) \n- heat the pan\n- scramble the eggs\n- add spinach to the pan\n- serve with avocado\n\n \n\n=================================n\n.... and more meals for this day\n\n================================= \n\n 2️⃣ TUESDAY: \n\n 🍽️ Breakfast: ... \n\n ... \nto 7️⃣ SUNDAY \n\nTotal nutrition \n- calories: \(Int(person.dailyCalories))\n- protein: 55g\n- carbs: 50g\n- fats: 35g\n- calories: \(Int(person.dailyCalories))\n- protein: 60g\n- carbs: 70g\n- fats: 35g \n ... to SUNDAY\n\n=================================\n\n 📋 Groceries list 🛒 \n\nMONDAY\n- 6 eggs\n- 1 avocado\n- 2 cups spinach\n- 1 cup quinoa\n- 1 cup cherry tomatoes\n- 1 cucumber\n- 1 bell pepper \n\nTUESDAY\n- 6 eggs\n- 1 avocado\n- 2 cups spinach\n- 1 cup quinoa\n- 1 cup cherry tomatoes\n- 1 cucumber\n- 1 bell pepper \n\n WEDNESDAY \n- 6 eggs \n\n THURSDAY \n- 6 eggs \n\n FRIDAY \n- 6 eggs \n\n SATURDAY \n- 6 eggs \n\n SUNDAY \n- 6 eggs"
+        
+        switch person.planFor {
+        case .daily:
+            return oneDayexample
+        case .weakly:
+            return weekExample
+        }
+    }
+   
+    func getMealPlan() {
+        let prompt = "Please generate list \(getPlanFor()) calculated calories for each meal. All meals each day together should have about \(person.dailyCalories) calories. \(activityDesc(activityLevel: person.activityLevel)) Meals must be balanced and healthy, include enough protein, carbs and fats. Person is a \(person.gender) have \(person.age) years old and \(person.height) cm height, \(person.weight) kg weight and with Body Mass Index \(person.bmi). \(foodPreferencesDesc(preferences: person.foodPreferences)) \(foodAllergiesDesc(allergies: person.foodAllergies)) \(sportGoalsDesc(goals: person.sportGoals)) Please at the end, write the total calories of all meals. \(getExample())"
+        
+        print(prompt)
         
         guard let msg = ChatQuery.ChatCompletionMessageParam(role: .user, content: prompt) else {return}
         let chatQuary = ChatQuery(messages: [msg], model: .gpt3_5Turbo, temperature: 0.5)
@@ -77,12 +100,11 @@ class ResultViewModel {
                 for x in answers {
                     resultText += x.delta.content ?? ""
                 }
-                meal.send(resultText)
+                
                 
             case .failure(let error):
                 print("error-> \(error)")
-                guard let errorApi = error as? APIErrorResponse, (errorApi.error.code ?? "") == "invalid_api_key" else {
-                    
+                guard let errorApi = error as? APIErrorResponse, ((errorApi.error.code ?? "") == "invalid_api_key") || apiKey == nil else {
                     meal.send(completion: .failure(.unknownError))
                     return
                 }
@@ -90,9 +112,14 @@ class ResultViewModel {
                 print("error-> \(error)")
             }
         } completion: {[weak self] error in
-            guard let self = self, error != nil else { return }
-            meal.send(completion: .failure(.unknownError))
-            print(error?.localizedDescription ?? "NO ERROR")
+            guard let self = self else { return }
+            if let error = error {
+                meal.send(completion: .failure(.unknownError))
+                print(error.localizedDescription)
+            } else {
+                meal.send(resultText)
+                meal.send(completion: .finished)
+            }
         }
     }
 }
