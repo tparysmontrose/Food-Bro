@@ -20,6 +20,24 @@
 
 For more information look the [documentation](https://developer.apple.com/documentation/xcode/running-your-app-in-simulator-or-on-a-device#)
 
-## Demo
+## Plan your ideal diet in a few easy steps
 
-![alt text](https://github.com/tparysmontrose/Food-Bro/blob/main/foodBro1.png?raw=true)
+<img src="foodBro1.png" height="480"/>
+
+ #### Step 1 - choose your options
+<img src="foodBro2.png" height="480"/>
+
+ #### Step 2 - specify the parameters of your person
+ <img src="foodBro3.png" height="480"/>
+
+ #### Step 3 - enter your food preferences
+ <img src="foodBro4.png" height="480"/>
+
+ #### Step 4 - enter your food allergies
+ <img src="foodBro5.png" height="480"/>
+
+ #### Step 5 - enter your sports or nutrition goals
+ <img src="foodBro6.png" height="480"/>
+
+ #### Step 6 - Done your diet is ready 
+ <img src="foodBro7.png" height="480"/>
