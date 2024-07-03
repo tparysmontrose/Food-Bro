@@ -3,7 +3,7 @@
 ## Requirements
 
 - iOS 16.0+
-- Xcode 14.0
+- Xcode 15.0
 
 ## Installation
 
@@ -19,3 +19,7 @@
  - Run the app in Simulator (by press play button) 
 
 For more information look the [documentation](https://developer.apple.com/documentation/xcode/running-your-app-in-simulator-or-on-a-device#)
+
+## Demo
+
+![alt text](https://github.com/tparysmontrose/Food-Bro/blob/main/foodBro1.png?raw=true)
