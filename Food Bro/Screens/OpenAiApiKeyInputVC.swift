@@ -56,7 +56,7 @@ class OpenAiApiKeyInputVC: UIViewController {
     
     let titleLbl: UILabel = {
         let lbl = UILabel()
-        lbl.text = "Api key Settings"
+        lbl.text = "Settings"
         lbl.textColor = .label
         lbl.font = .systemFont(ofSize: 17)
         lbl.textAlignment = .center
@@ -105,7 +105,7 @@ class OpenAiApiKeyInputVC: UIViewController {
         apiKeyTf.delegate = self
         view.backgroundColor = .systemBackground
         navigationController?.navigationBar.prefersLargeTitles = true
-        title = "Api key Settings"
+        title = "Settings"
         backBtn.isHidden = withNavBar
         titleLbl.isHidden = withNavBar
         

@@ -35,7 +35,7 @@ class MenuVC: UIViewController {
     
     let apiKeySettingsBtn: UIButton = {
         let btn = UIButton(configuration: .gray())
-        btn.configuration?.title = "OpenAI Api key settings"
+        btn.configuration?.title = "Settings"
         return btn
     }()
     

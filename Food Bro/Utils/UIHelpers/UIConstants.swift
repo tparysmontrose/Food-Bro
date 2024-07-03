@@ -13,7 +13,7 @@ enum UIConstants {
     /// 10px
     static let standardCornerRadius: CGFloat = 10
     /// 34px
-    static let standardTF: CGFloat = 34
+    static let standardTF: CGFloat = 51
     /// 50 px
     static let buttonHeight: CGFloat = 51
     /// 34px

@@ -17,7 +17,7 @@ class PersonInfoInputVC: UIViewController {
         stack.layoutMargins = UIEdgeInsets(top: Margins.zero, left: Margins.standard, bottom: Margins.zero, right: Margins.standard)
         stack.spacing = Margins.standard
         stack.axis = .vertical
-        stack.addArrangedSubviews(ageTextField, weightTextField, heightTextField, genderSegmentedControl)
+        stack.addArrangedSubviews(genderSegmentedControl, ageTextField, weightTextField, heightTextField)
         return stack
     }()
     
